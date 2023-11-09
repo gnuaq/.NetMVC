@@ -1,0 +1,38 @@
+﻿@model WebApplication4.Models.Customers
+@{
+    ViewData["title"] = "Login Pagwe";
+}
+<h1>Login Page</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Index">
+            <div class="form-group">
+                <label asp-for="EmailAddress" class="control-label"></label>
+                <input asp-for="EmailAddress" class="form-control" />
+                <span asp-validation-for="EmailAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <hr />
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+@if (!string.IsNullOrEmpty(Model.FullName))
+{
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <div class="result">
+                <h4>Result: </h4>
+                @Model.FullName
+            </div>
+        </div>
+    </div>
+}
